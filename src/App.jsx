@@ -34,7 +34,7 @@ function App() {
       </div>
 
       <div id="allNews">
-        {news.length > 0 ? (
+        {news.length() > 0 ? (
           news.map((article, index) => (
             <News
               key={article.url}
