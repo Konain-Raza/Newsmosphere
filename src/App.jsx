@@ -3,14 +3,9 @@ import reactLogo from './assets/react.svg';
 import './App.css';
 import News from './Components/News';
 import Contact from './Components/Contact';
-import icon from  "../icon.png"
-function App() {
-  const [count, setCount] = useState(0);
-  const [news, setNews] = useState([]);
 
-  function contactPage() {
-    return <Contact />;
-  }
+function App() {
+  const [news, setNews] = useState([]);
 
   const getNews = async () => {
     try {
@@ -31,7 +26,7 @@ function App() {
   return (
     <div className="antialiased mb-5" id="mainPage">
       <div id="header">
-        <img src={icon} alt="Logo" />
+        <img src={reactLogo} alt="React Logo" />
         <h1 className="text-6xl font-bold text-center relative">Newsmosphere</h1>
         <p id="tagline" className="absolute">
           Stay Informed, Stay Ahead
@@ -40,11 +35,11 @@ function App() {
 
       <div id="allNews">
         {news.length > 0 ? (
-          news.map((article) => (
+          news.map((article, index) => (
             <News
-              key={article.url} 
+              key={article.url}
               title={article.title}
-              cover={article.urlToImage}
+              cover={article.urlToImage || ''}
               url={article.url}
               description={article.description}
             />
