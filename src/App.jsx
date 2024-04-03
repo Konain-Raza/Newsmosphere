@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import reactLogo from './assets/react.svg';
+import reactLogo from '../icon.png';
 import './App.css';
 import News from './Components/News';
 import Contact from './Components/Contact';
@@ -34,7 +34,7 @@ function App() {
       </div>
 
       <div id="allNews">
-        {news.length() > 0 ? (
+        {news.length > 0 ? (
           news.map((article, index) => (
             <News
               key={article.url}
