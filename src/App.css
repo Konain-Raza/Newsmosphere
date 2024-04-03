@@ -1,0 +1,46 @@
+
+#root {
+  max-width: 1280px;
+  min-height: 350vh;
+  margin: 0 auto;
+  padding: 2rem;
+margin-bottom: 10vw;
+}
+
+
+#allNews{
+  width: 90vw;
+  margin: auto auto;
+display: flex;
+justify-content: flex-start;
+gap: 5vw;
+flex-wrap: wrap;
+padding-left: 3vw;
+height: auto;
+align-items: center;
+}
+#header{
+color: #333333 ;
+
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  width: 90vw;
+  margin-bottom: 5vw;
+}
+#header img{
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+  object-fit:fill;
+}
+
+#tagline{
+  font-style: italic;
+  font-weight: bolder;
+  left: 40.5%;
+  top: 17%;
+/* bottom: ; */
+}
