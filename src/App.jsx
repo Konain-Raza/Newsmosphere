@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import reactLogo from '../icon.png';
 import './App.css';
 import News from './Components/News';
@@ -6,21 +6,30 @@ import Contact from './Components/Contact';
 
 function App() {
   const [news, setNews] = useState([]);
-
-  const getNews = async () => {
-    try {
-      const request = await fetch(
-        'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=332d61176ded4e41875db147a522affe'
-      );
-      const data = await request.json();
-      setNews(data.articles);
-    } catch (error) {
-      console.error('Error fetching news:', error);
-    }
-  };
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getNews();
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(
+          'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=332d61176ded4e41875db147a522affe'
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch news');
+        }
+
+        const data = await response.json();
+        setNews(data.articles);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
   }, []);
 
   return (
@@ -34,7 +43,11 @@ function App() {
       </div>
 
       <div id="allNews">
-        {news.length > 0 ? (
+        {loading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : (
           news.map((article, index) => (
             <News
               key={article.url}
@@ -44,8 +57,6 @@ function App() {
               description={article.description}
             />
           ))
-        ) : (
-          <p>Loading...</p>
         )}
       </div>
     </div>
