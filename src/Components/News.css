@@ -4,10 +4,14 @@
     object-fit:fill;
 }
 #news{
-    width: 25vw;
+    width: 27vw !important;
     display: flex;
+    height:100%;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.87);
+    border-radius: 30px;
+    padding: 20px;
 }
 #description{
 color: #333333 ;

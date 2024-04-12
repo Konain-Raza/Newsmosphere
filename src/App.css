@@ -9,15 +9,11 @@ margin-bottom: 10vw;
 
 
 #allNews{
-  width: 90vw;
-  margin: auto auto;
+  width: 100%;
 display: flex;
-justify-content: flex-start;
-gap: 5vw;
+gap: 4vw;
 flex-wrap: wrap;
-padding-left: 3vw;
 height: auto;
-align-items: center;
 }
 #header{
 color: #333333 ;
