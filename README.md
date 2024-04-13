@@ -7,7 +7,7 @@
 Welcome to Newsmosphere, your go-to destination for staying informed with the latest news updates!
 
 Visit the live website: [Newsmosphere](https://newsmosphere.netlify.app)
-
+n
 ## Features
 
 - **Latest News**: Get up-to-date news from various sources.
