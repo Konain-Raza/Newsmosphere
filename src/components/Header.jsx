@@ -1,6 +1,6 @@
 import { View, TextInput } from 'react-native';
 import React, { useState } from 'react';
-import { SearchIcon } from 'react-native-heroicons/outline'; // Assuming you're using heroicons or any other icon package
+// import { SearchIcon } from 'react-native-heroicons/outline'; // Assuming you're using heroicons or any other icon package
 
 const Header = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,7 +18,7 @@ const Header = ({ onSearch }) => {
         placeholder='Search...'
         className='flex-grow h-10 bg-white rounded-xl px-4 text-black'
       />
-      <SearchIcon className='w-6 h-6 text-white ml-2' />
+      {/* <SearchIcon className='w-6 h-6 text-white ml-2' /> */}
     </View>
   );
 };
