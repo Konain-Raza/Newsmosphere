@@ -1,28 +1,40 @@
-import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
-import Header from '../src/components/Header';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, View } from 'react-native';
 import Headlines from '../src/components/Headlines';
 import Explore from '../src/components/Explore';
 import AllNews from '../src/components/AllNews';
+import Splash from './Splash';
 
 const App = () => {
   const [category, setCategory] = useState('business');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+  const apiKey = 'pub_5245197b2bd1b6ecd3a8ba6a4fc98b2901f69';
 
-  const handleCategorySelect = (selectedCategory) => {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust the duration as needed
+  
+    return () => clearTimeout(timer); // Cleanup timer on unmount
+  }, []);
+  
+
+  const handleCategorySelect = selectedCategory => {
     setCategory(selectedCategory);
   };
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-  };
+  if (isLoading) {
+    return <Splash />;
+  }
 
   return (
-    <ScrollView className="w-full h-max min-h-screen bg-slate-100 px-3">
-      <Header onSearch={handleSearch} />
-      <Headlines />
+    <ScrollView
+      contentContainerStyle={{ flexGrow: 1, backgroundColor: '#F8F8F8' }}
+      className="px-1 bg-white"
+    >
+      <Headlines apiKey={apiKey} />
       <Explore onCategorySelect={handleCategorySelect} />
-      <AllNews category={category} searchQuery={searchQuery} />
+      <AllNews apiKey={apiKey} category={category} setCategory={setCategory}/>
     </ScrollView>
   );
 };

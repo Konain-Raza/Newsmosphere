@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, ActivityIndicator, ScrollView } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, ActivityIndicator, Image} from 'react-native';
 import NewsCard from './NewsCard';
 
-const AllNews = ({ category, searchQuery }) => {
-  const [news, setNews] = useState([]);
+const AllNews = ({category, apiKey}) => {
+  const [news, setNews] = useState([]); // Ensure it's always an array
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null); // Add state for error handling
 
   useEffect(() => {
     if (category) {
       getNews();
     }
-  }, [category, searchQuery]);
+  }, [category]);
 
   const getNews = async () => {
     try {
       setLoading(true);
-      
-      // Construct the URL based on the presence of the search query
-      const url = searchQuery 
-        ? `https://newsdata.io/api/1/news?apikey=pub_523219571df3b76e9320df252476066d90698&q=${encodeURIComponent(searchQuery)}`
-        : `https://newsdata.io/api/1/news?apikey=pub_523219571df3b76e9320df252476066d90698&category=${category}`;
-      
-      const request = await fetch(url);
-      const response = await request.json();
-      setNews(response.results || []);
+      setError(null);
+      const url = `https://newsdata.io/api/1/news?apikey=${apiKey}&category=${category}&language=en`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error('API rate limit exceeded or other error');
+      }
+
+      const data = await response.json();
+
+      setNews(Array.isArray(data.results) ? data.results : []);
     } catch (error) {
       console.error('Failed to fetch news:', error);
+      setError('API rate limit exceeded. Please try again later.');
+      setNews([]);
     } finally {
       setLoading(false);
     }
@@ -36,14 +41,32 @@ const AllNews = ({ category, searchQuery }) => {
   }
 
   return (
-    <ScrollView className="w-full h-max bg-slate-100 px-4 py-2">
-      <Text className="text-2xl text-black font-bold mb-4">News for {category} {searchQuery}</Text>
-      <FlatList
-        data={news}
-        keyExtractor={item => item.link}
-        renderItem={({ item }) => <NewsCard news={item} />}
-      />
-    </ScrollView>
+    <View className="w-full bg-slate-100 px-4 pt-5 pb-10">
+      {error ? (
+        <View className="w-full bg-white h-36 rounded-3xl mx-auto px-3 flex-row mb-4 shadow-lg border justify-center items-center border-gray-200">
+          <View className="w-[75%] h-full ml-6 flex justify-center">
+            <Text className="text-gray-800 text-xl font-gilroyBold ">
+              Whoops! News on Vacation
+            </Text>
+            <Text className="text-gray-600 text-sm">
+              It seems our news is taking a break. 🗞️ We promise it’ll be back
+              soon, so hang tight and check back later!
+            </Text>
+          </View>
+          <View className="w-[25%] h-full flex-row  items-center">
+            <Image
+              source={require('../assets/images/wait-icon.png')} // Replace with your local image path
+              className="w-20 h-20 object-cover"
+              resizeMode="contain"
+            />
+          </View>
+        </View>
+      ) : news.length === 0 ? (
+        <Text className="text-3xl text-black text-center">No Items</Text>
+      ) : (
+        news.map(item => <NewsCard key={item.link} news={item} />)
+      )}
+    </View>
   );
 };
 

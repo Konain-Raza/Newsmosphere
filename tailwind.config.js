@@ -4,6 +4,11 @@ module.exports = {
   theme: {
     extend: {
       primary: '#000000',
+      fontFamily: {
+        gilroy: ['Gilroy-Regular', 'sans-serif'],
+        gilroyBold: ['Gilroy-Bold', 'sans-serif'],
+        // Add more custom fonts if needed
+      },
     },
   },
   plugins: [],

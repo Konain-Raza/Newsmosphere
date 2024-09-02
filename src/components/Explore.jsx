@@ -59,17 +59,22 @@ const Explore = ({onCategorySelect}) => {
         'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8d29ybGR8ZW58MHx8MHx8fDA%3D',
     },
   ]);
+  
 
   return (
-    <View className="w-full h-[20vh]  flex">
-      <Text className="text-2xl text-black px-4 pb-2">Explore</Text>
+    <View className="w-full h-[21vh]  flex">
+      <Text className="text-3xl font-gilroyBold text-black px-4 mb-2">Discover ✨</Text>
+
 
       <FlatList
         data={categories}
+        
         horizontal={true}
         renderItem={({item}) => {
           return (
-            <TouchableOpacity onPress={() => onCategorySelect(item)}>
+            <TouchableOpacity onPress={() => {
+              onCategorySelect(item.name);
+            }}>
               <ImageBackground
                 className="w-28 h-28  rounded-full overflow-hidden ml-3 items-center justify-center flex-row"
                 source={{
@@ -77,7 +82,7 @@ const Explore = ({onCategorySelect}) => {
                     item.imageUrl ||
                     'https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-color-tennis-sport-advertising-background-backgroundmotionwork-outtennistreeshand-paintedfreshhouses-image_75815.jpg',
                 }}>
-                <Text className="text-white text-md font-bold">
+                <Text className="text-white text-md font-gilroyBold">
                   {item.name}
                 </Text>
               </ImageBackground>
