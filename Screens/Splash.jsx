@@ -48,7 +48,7 @@ const Splash = () => {
       </View>
       <View className="pb-5">
       <Text className="text-lg font-gilroyBold text-gray-500 text-center bottom-0">
-        Made with ❤️ by Sohaib
+        Made with ❤️ by Konain Raza
       </Text>
       </View>
     </View>

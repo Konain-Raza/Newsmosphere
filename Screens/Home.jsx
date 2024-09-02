@@ -8,7 +8,7 @@ import Splash from './Splash';
 const App = () => {
   const [category, setCategory] = useState('business');
   const [isLoading, setIsLoading] = useState(true);
-  const apiKey = 'pub_5245197b2bd1b6ecd3a8ba6a4fc98b2901f69';
+  const apiKey = 'pub_5250985b823f86deba89568edf8355be0bce9';
 
   useEffect(() => {
     const timer = setTimeout(() => {
