@@ -9,8 +9,8 @@
 Welcome to Newsmosphere - Your Ultimate News Companion. Filter. Browse. Read. Repeat. Because staying informed has never been this fun! 🎉</p>
 
 <p align="center">
-  <a href="https://your-app-link-here.com">
-    <img src="/src/assets/Images/web-preview.png" alt="App Preview" width="1000">
+  <a href="https://drive.google.com/u/0/uc?id=17IjlhBwisUdlo4q-hlpal7y8oEv6Dwg_&export=download">
+    <img src="./src/assets/images/qr-code.png" alt="App Preview" width="1000">
   </a>
 </p>
 
