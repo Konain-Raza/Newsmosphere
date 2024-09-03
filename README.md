@@ -7,10 +7,10 @@
 
 <p align="center">Catch the News, Before the News Catches You! 📰🚀<br>
 Welcome to Newsmosphere - Your Ultimate News Companion. Filter. Browse. Read. Repeat. Because staying informed has never been this fun! 🎉</p>
-
+<img src="./src/assets/preview.png alt="App Preview" width="1000">
 <p align="center">
   <a href="https://drive.google.com/u/0/uc?id=17IjlhBwisUdlo4q-hlpal7y8oEv6Dwg_&export=download">
-    <img src="./src/assets/preview.png" alt="App Preview" width="1000">
+    <img src="./src/assets/preview.png alt="App Preview" width="1000">
   </a>
 </p>
 
@@ -31,7 +31,7 @@ Welcome to Newsmosphere - Your Ultimate News Companion. Filter. Browse. Read. Re
 - [📜 License Info](#license-info)
 
 <p align="center">
-  <img src="/assets/images/newsmosphere-icon.png" alt="Newsmosphere Logo" width="200" height="150">
+  <img src="./src/assets/preview.png" alt="Newsmosphere Logo" width="200" height="150">
 </p>
 
 # 🌟 What is Newsmosphere?
