@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="./src/assets/icon.png" alt="Newsmosphere Logo" width="200" height="150">
+  <img src="./src/assets/icon.png" alt="Newsmosphere Logo" width="150" height="150">
 </p>
 
 <h1 align="center" style="font-size: 36px;">Newsmosphere 🌍</h1>
@@ -10,7 +10,7 @@ Welcome to Newsmosphere - Your Ultimate News Companion. Filter. Browse. Read. Re
 
 <p align="center">
   <a href="https://drive.google.com/u/0/uc?id=17IjlhBwisUdlo4q-hlpal7y8oEv6Dwg_&export=download">
-    <img src="./src/assets/qr-codae.png" alt="App Preview" width="1000">
+    <img src="./src/assets/preview.png" alt="App Preview" width="1000">
   </a>
 </p>
 
